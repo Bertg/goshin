@@ -34,6 +34,12 @@
     from { transform: scale(1); }
     to   { transform: scale(1.08); }
   }
+  #site-header.scrolled {
+    background-color: rgba(10,10,10,0.80);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 8px 20px rgba(0,0,0,0.25);
+  }
 </style>
 </head>
 <body class="bg-white text-ink antialiased">
@@ -46,7 +52,7 @@
 </div>
 
 <!-- HEADER -->
-<header class="absolute top-0 inset-x-0 z-40">
+<header id="site-header" class="fixed top-0 inset-x-0 z-40 transition-[background-color,backdrop-filter,box-shadow] duration-300">
   <div class="max-w-7xl mx-auto px-5 h-20 flex items-center justify-between text-white">
     <a href="index.html" class="flex items-center gap-3">
       <img src="assets/goshin_logo_without_text.jpg" alt="Goshin logo" class="h-11 w-11 object-contain bg-white/95 p-1 rounded-md" />
@@ -294,6 +300,12 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  (() => {
+    const header = document.getElementById('site-header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 80);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
 </script>
 </body>
 </html>
