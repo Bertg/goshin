@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Judoclub Goshin Sint-Amandsberg — Variant: tactile</title>
+<meta name="description" content="Skeuomorphic / tactile variant of the Judoclub Goshin landing page." />
+<link rel="icon" type="image/jpeg" href="assets/goshin_logo_without_text.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          parchment: '#f3e9d0',
+          paper:     '#fbf4e0',
+          ink:       '#2a1d10',
+          burgundy:  { DEFAULT: '#8a1f1f', dark: '#5e1414' },
+          tatami:    '#c9a44b',
+          leather:   '#3a3128',
+        },
+        fontFamily: {
+          sans:    ['Inter', 'system-ui', 'sans-serif'],
+          display: ['Fraunces', 'Georgia', 'serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; color: #2a1d10; }
+  .font-display { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.01em; font-variation-settings: "opsz" 144; }
+
+  /* PAPER TEXTURE — grain */
+  .bg-paper {
+    background-color: #f7eed4;
+    background-image:
+      radial-gradient(rgba(160,120,70,0.10) 1px, transparent 1px),
+      radial-gradient(rgba(100,70,40,0.06) 1px, transparent 1px),
+      linear-gradient(135deg, rgba(255,250,225,0.6), rgba(220,200,160,0.0));
+    background-size: 9px 9px, 17px 17px, 100% 100%;
+    background-position: 0 0, 4px 6px, 0 0;
+  }
+  .bg-paper-dark {
+    background-color: #ead8a9;
+    background-image:
+      radial-gradient(rgba(80,50,20,0.18) 1px, transparent 1px),
+      radial-gradient(rgba(60,40,15,0.12) 1px, transparent 1px);
+    background-size: 9px 9px, 17px 17px;
+  }
+
+  /* PAPER CARD — slight depth */
+  .card-paper {
+    background: #fffaea;
+    background-image: radial-gradient(rgba(150,110,60,0.06) 1px, transparent 1px);
+    background-size: 7px 7px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.8),
+      inset 0 0 0 1px rgba(120,80,40,0.10),
+      0 1px 1px rgba(60,40,20,0.05),
+      0 8px 16px -4px rgba(60,40,20,0.10),
+      0 24px 36px -16px rgba(60,40,20,0.18);
+    border-radius: 14px;
+    position: relative;
+  }
+  .card-paper::before {
+    content: '';
+    position: absolute; inset: 7px;
+    border: 1px dashed rgba(120,80,40,0.18);
+    border-radius: 9px;
+    pointer-events: none;
+  }
+
+  /* WOODEN FRAME */
+  .wood-frame {
+    background:
+      linear-gradient(180deg, #5b504280, #3f3629),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.05) 0 1px, transparent 1px 6px);
+    background-color: #46392c;
+    box-shadow:
+      inset 0 1px 0 rgba(255,220,180,0.10),
+      inset 0 -3px 6px rgba(0,0,0,0.30),
+      0 8px 24px rgba(40,30,20,0.25);
+  }
+
+  /* BLACK BELT STRIP */
+  .belt-strip {
+    background:
+      linear-gradient(180deg, #2a2418 0%, #0c0a06 25%, #050402 75%, #1a1610 100%);
+    position: relative;
+    box-shadow:
+      inset 0 1px 0 rgba(255,220,160,0.20),
+      inset 0 -1px 0 rgba(0,0,0,0.7),
+      0 4px 8px rgba(0,0,0,0.25),
+      0 12px 24px -8px rgba(0,0,0,0.35);
+  }
+  .belt-strip::before, .belt-strip::after {
+    content: '';
+    position: absolute; left: 6%; right: 6%;
+    border-top: 1.5px dashed rgba(245,220,170,0.22);
+  }
+  .belt-strip::before { top: 6px; }
+  .belt-strip::after  { bottom: 6px; }
+
+  /* COLOR BELTS — same shape, different hue */
+  .belt-band { background: linear-gradient(180deg, var(--c1) 0%, var(--c2) 50%, var(--c3) 100%); position: relative; }
+  .belt-band::before, .belt-band::after {
+    content: ''; position: absolute; left: 6%; right: 6%;
+    border-top: 1.5px dashed rgba(255,255,255,0.35);
+  }
+  .belt-band::before { top: 5px; }
+  .belt-band::after  { bottom: 5px; }
+
+  /* WAX SEAL */
+  .wax {
+    background:
+      radial-gradient(ellipse at 28% 28%, #c64a3a 0%, #8a1f1f 45%, #5e1414 100%);
+    color: #fbe6c4;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 800;
+    box-shadow:
+      inset 0 2px 1px rgba(255,180,140,0.35),
+      inset 0 -3px 6px rgba(0,0,0,0.5),
+      inset 0 0 0 1px rgba(0,0,0,0.2),
+      0 6px 12px rgba(0,0,0,0.25),
+      0 18px 30px -12px rgba(0,0,0,0.35);
+    border-radius: 9999px;
+    transform: rotate(-4deg);
+  }
+
+  /* LEATHER BUTTON */
+  .btn-leather {
+    background: linear-gradient(180deg, #564738 0%, #2c2519 100%);
+    color: #f5e9d0;
+    box-shadow:
+      inset 0 1px 0 rgba(255,220,170,0.20),
+      inset 0 -2px 6px rgba(0,0,0,0.45),
+      inset 0 0 0 1px rgba(0,0,0,0.35),
+      0 2px 3px rgba(0,0,0,0.20),
+      0 8px 16px -4px rgba(0,0,0,0.28);
+  }
+  .btn-leather:hover { filter: brightness(1.12); }
+
+  .btn-paper {
+    background: #fffaea;
+    color: #2a1d10;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.9),
+      inset 0 0 0 1px rgba(120,80,40,0.18),
+      0 2px 3px rgba(60,40,20,0.10),
+      0 8px 14px -4px rgba(60,40,20,0.18);
+  }
+  .btn-paper:hover { background: #fff5da; }
+
+  /* EMBOSS / DEBOSS TYPE */
+  .emboss { text-shadow: 0 1px 0 rgba(255,255,255,0.6), 0 -1px 0 rgba(0,0,0,0.04); }
+  .deboss-burgundy {
+    color: #6a1717;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.65), 0 -1px 0 rgba(0,0,0,0.06);
+  }
+
+  /* TATAMI background — a faint woven look */
+  .bg-tatami {
+    background-color: #c9a44b;
+    background-image:
+      repeating-linear-gradient(0deg,   rgba(0,0,0,0.05) 0 1px, transparent 1px 6px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 6px);
+  }
+
+  /* STAMP outline */
+  .stamp {
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    padding: 6px 12px;
+    transform: rotate(-3deg);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 800;
+    opacity: 0.9;
+  }
+
+  /* sticky tape */
+  .tape {
+    position: absolute;
+    width: 90px; height: 22px;
+    background: rgba(255,243,200,0.6);
+    box-shadow: inset 0 0 12px rgba(180,140,80,0.18), 0 1px 2px rgba(0,0,0,0.05);
+    transform: rotate(-3deg);
+  }
+</style>
+</head>
+<body class="bg-paper antialiased">
+
+<!-- Variant switcher -->
+<div class="fixed bottom-4 right-4 z-50 flex gap-1 rounded-full bg-leather/90 backdrop-blur p-1 text-xs text-paper">
+  <a href="index.html" class="px-3 py-1.5 rounded-full hover:bg-white/10">Origineel</a>
+  <a href="index-images.html" class="px-3 py-1.5 rounded-full hover:bg-white/10">Beeld</a>
+  <a href="index-tactile.html" class="px-3 py-1.5 rounded-full bg-white/15">Tactile</a>
+</div>
+
+<!-- HEADER on a leather strap -->
+<header class="wood-frame text-paper sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/goshin_logo_without_text.jpg" alt="Goshin" class="h-10 w-10 object-contain bg-paper p-1 rounded-md shadow-inner" />
+      <span class="font-display font-black text-xl tracking-tight">Judoclub Goshin</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="#trainingen" class="hover:text-white">Trainingen</a>
+      <a href="nieuw-lid.html" class="hover:text-white">Nieuw lid</a>
+      <a href="club.html" class="hover:text-white">Club</a>
+      <a href="#contact" class="hover:text-white">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative bg-paper overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none opacity-[0.05] flex items-center justify-end pr-10">
+    <span class="font-display text-[28rem] leading-none text-leather">柔</span>
+  </div>
+  <div class="relative max-w-6xl mx-auto px-5 pt-20 pb-24 md:pt-28 md:pb-32">
+    <span class="inline-block stamp text-burgundy">Sinds 1965 — Sint-Amandsberg</span>
+    <h1 class="mt-6 font-display font-black text-6xl md:text-8xl leading-[0.92] emboss">
+      Judo voor iedereen,<br/>
+      <span class="deboss-burgundy italic">van 5 tot 99 jaar.</span>
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg md:text-xl text-leather/90">
+      Recreatief en competitief judo in een warme clubsfeer. Twee trainingen per week, deskundige trainers en een tatami van 191&nbsp;m². Het hele jaar door instappen, met <strong>4 gratis proeflessen</strong>.
+    </p>
+    <div class="mt-10 flex flex-wrap items-center gap-5">
+      <a href="#proefles" class="btn-leather inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold uppercase tracking-wider text-sm">
+        Start met 4 lessen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#trainingen" class="btn-paper inline-flex items-center gap-2 rounded-full px-6 py-4 font-bold uppercase tracking-wider text-sm">
+        Trainingsuren
+      </a>
+      <span class="wax inline-flex items-center justify-center h-24 w-24 text-[10px] text-center leading-tight ml-auto md:ml-4">Gratis<br/>proeven</span>
+    </div>
+  </div>
+  <div class="belt-strip h-5 w-full"></div>
+</section>
+
+<!-- QUICK FACTS as torn paper cards -->
+<section class="bg-paper-dark py-10">
+  <div class="max-w-6xl mx-auto px-5 grid sm:grid-cols-2 gap-6">
+    <div class="card-paper p-7 relative">
+      <div class="tape -top-3 left-8"></div>
+      <p class="text-xs uppercase tracking-[0.2em] text-burgundy font-bold">Wanneer</p>
+      <p class="mt-2 font-display font-black text-3xl emboss">Maandag &amp; donderdag</p>
+      <p class="mt-1 text-leather/80">Vanaf 18u00 — drie leeftijdsgroepen.</p>
+    </div>
+    <div class="card-paper p-7 relative">
+      <div class="tape -top-3 right-8"></div>
+      <p class="text-xs uppercase tracking-[0.2em] text-burgundy font-bold">Waar</p>
+      <p class="mt-2 font-display font-black text-3xl emboss">Sporthal Rozebroeken</p>
+      <p class="mt-1 text-leather/80">Victor Braeckmanlaan 180, 9040 Gent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRAININGEN — physical belt cards -->
+<section id="trainingen" class="bg-paper py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="text-xs uppercase tracking-[0.25em] text-burgundy font-bold">Trainingen</p>
+    <h2 class="mt-3 font-display font-black text-5xl md:text-6xl emboss leading-[0.95]">Drie groepen,<br/>drie gordels.</h2>
+    <p class="mt-5 max-w-xl text-lg text-leather/90">Elke maandag- en donderdagavond. Iedereen traint op zijn niveau.</p>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <!-- Group 1 -->
+      <article class="card-paper overflow-hidden">
+        <div class="grid grid-cols-2">
+          <div class="belt-band h-9" style="--c1:#fdfaf2; --c2:#f5ecd0; --c3:#e2d4a8"></div>
+          <div class="belt-band h-9" style="--c1:#fde047; --c2:#facc15; --c3:#b88f0a"></div>
+        </div>
+        <div class="p-7">
+          <p class="text-xs uppercase tracking-[0.2em] text-burgundy font-bold">5 — ±10 jaar</p>
+          <h3 class="mt-2 font-display font-black text-3xl emboss">Groep 1</h3>
+          <p class="mt-5 font-display font-black text-3xl text-leather">18:00 → 19:00</p>
+        </div>
+      </article>
+      <!-- Group 2 -->
+      <article class="card-paper overflow-hidden">
+        <div class="grid grid-cols-3">
+          <div class="belt-band h-9" style="--c1:#fde047; --c2:#facc15; --c3:#b88f0a"></div>
+          <div class="belt-band h-9" style="--c1:#fb923c; --c2:#ea580c; --c3:#9a3412"></div>
+          <div class="belt-band h-9" style="--c1:#22c55e; --c2:#16a34a; --c3:#0e6e34"></div>
+        </div>
+        <div class="p-7">
+          <p class="text-xs uppercase tracking-[0.2em] text-burgundy font-bold">±10 — ±14 jaar</p>
+          <h3 class="mt-2 font-display font-black text-3xl emboss">Groep 2</h3>
+          <p class="mt-5 font-display font-black text-3xl text-leather">19:00 → 20:15</p>
+        </div>
+      </article>
+      <!-- Group 3 -->
+      <article class="card-paper overflow-hidden">
+        <div class="grid grid-cols-4">
+          <div class="belt-band h-9" style="--c1:#22c55e; --c2:#16a34a; --c3:#0e6e34"></div>
+          <div class="belt-band h-9" style="--c1:#3b82f6; --c2:#2563eb; --c3:#1e40af"></div>
+          <div class="belt-band h-9" style="--c1:#a16207; --c2:#854d0e; --c3:#3f2c08"></div>
+          <div class="belt-strip h-9"></div>
+        </div>
+        <div class="p-7">
+          <p class="text-xs uppercase tracking-[0.2em] text-burgundy font-bold">Vanaf ±14 jaar</p>
+          <h3 class="mt-2 font-display font-black text-3xl emboss">Groep 3</h3>
+          <p class="mt-5 font-display font-black text-3xl text-leather">20:15 → 21:45</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4 GRATIS — wax seal section -->
+<section id="proefles" class="bg-leather text-paper relative overflow-hidden">
+  <div class="belt-strip h-5 w-full"></div>
+  <div class="max-w-6xl mx-auto px-5 py-24 md:py-32 grid md:grid-cols-5 gap-12 items-center">
+    <div class="md:col-span-3">
+      <p class="text-xs uppercase tracking-[0.25em] text-tatami font-bold">Gratis proeven</p>
+      <h2 class="mt-3 font-display font-black text-5xl md:text-6xl leading-[0.95]">4 gratis<br/><em class="text-tatami">initiatielessen.</em></h2>
+      <p class="mt-6 text-lg text-paper/85 max-w-xl">Iedere beginner mag <strong class="text-paper">vier lessen gratis</strong> meedoen, zonder vooraf in te schrijven of een judopak aan te schaffen. Kom gewoon eens langs.</p>
+      <ul class="mt-8 space-y-3 text-paper/90">
+        <li class="flex gap-3"><span class="text-tatami mt-0.5">✦</span> Vanaf 5 jaar — geen ervaring nodig</li>
+        <li class="flex gap-3"><span class="text-tatami mt-0.5">✦</span> Judopak in bruikleen</li>
+        <li class="flex gap-3"><span class="text-tatami mt-0.5">✦</span> Volledig verzekerd</li>
+        <li class="flex gap-3"><span class="text-tatami mt-0.5">✦</span> Inschrijven kan het hele jaar door</li>
+      </ul>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="nieuw-lid.html" class="btn-paper inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-bold uppercase tracking-wider text-sm">Volledige info</a>
+        <a href="mailto:info@goshin.be" class="inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-bold uppercase tracking-wider text-sm border-2 border-paper/30 hover:border-paper">info@goshin.be</a>
+      </div>
+    </div>
+    <div class="md:col-span-2 flex items-center justify-center">
+      <div class="wax inline-flex items-center justify-center h-56 w-56 md:h-64 md:w-64 text-center leading-tight">
+        <div>
+          <p class="text-3xl font-display font-black tracking-normal italic">Goshin</p>
+          <p class="text-[10px] mt-2 tracking-[0.2em]">4 gratis<br/>proeflessen</p>
+          <p class="text-[10px] mt-2 opacity-70">est. 1965</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="belt-strip h-5 w-full"></div>
+</section>
+
+<!-- LOCATIE -->
+<section id="locatie" class="bg-paper py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-12 items-start">
+    <div>
+      <p class="text-xs uppercase tracking-[0.25em] text-burgundy font-bold">Locatie</p>
+      <h2 class="mt-3 font-display font-black text-5xl md:text-6xl emboss leading-[0.95]">Sporthal<br/>Rozebroeken.</h2>
+      <p class="mt-5 text-leather/90 text-lg max-w-md">Een ruime, lichte zaal met een tatami van 191 m². Vlot bereikbaar met fiets, te voet, auto of openbaar vervoer.</p>
+      <div class="card-paper mt-8 p-6 max-w-md">
+        <p class="text-xs uppercase tracking-[0.2em] text-burgundy font-bold">Adres</p>
+        <p class="mt-1 font-display font-black text-2xl emboss">Sporthal Rozebroeken</p>
+        <p class="text-leather/80">Victor Braeckmanlaan 180</p>
+        <p class="text-leather/80">9040 Sint-Amandsberg (Gent)</p>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://www.google.com/maps/search/?api=1&query=Sporthal+Rozebroeken+Victor+Braeckmanlaan+180+9040+Sint-Amandsberg" target="_blank" rel="noopener" class="btn-leather inline-flex items-center gap-2 rounded-full px-5 py-3 font-bold uppercase tracking-wider text-xs">Google Maps</a>
+        <a href="https://www.openstreetmap.org/?mlat=51.0597&mlon=3.7610#map=18/51.0597/3.7610" target="_blank" rel="noopener" class="btn-paper inline-flex items-center gap-2 rounded-full px-5 py-3 font-bold uppercase tracking-wider text-xs">OpenStreetMap</a>
+      </div>
+    </div>
+    <div class="hidden md:block card-paper overflow-hidden aspect-[4/3] p-0">
+      <iframe title="Kaart Sporthal Rozebroeken" src="https://www.openstreetmap.org/export/embed.html?bbox=3.7560%2C51.0567%2C3.7660%2C51.0627&amp;layer=mapnik&amp;marker=51.0597%2C3.7610" class="w-full h-full" loading="lazy" style="filter: sepia(0.25) saturate(0.85)"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-tatami relative overflow-hidden">
+  <div class="absolute inset-0 bg-tatami pointer-events-none opacity-100"></div>
+  <div class="belt-strip h-5"></div>
+  <div class="relative max-w-6xl mx-auto px-5 py-24 text-leather">
+    <h2 class="font-display font-black text-5xl md:text-7xl leading-[0.92] emboss max-w-3xl">Klaar om te starten?</h2>
+    <p class="mt-5 text-xl max-w-2xl">Kom op een maandag- of donderdagavond gewoon binnen. Geen afspraak, geen voorbereiding nodig.</p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="#trainingen" class="btn-leather inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold uppercase tracking-wider text-sm">Trainingsuren</a>
+      <a href="mailto:info@goshin.be" class="btn-paper inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold uppercase tracking-wider text-sm">info@goshin.be</a>
+    </div>
+  </div>
+  <div class="belt-strip h-5"></div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="wood-frame text-paper">
+  <div class="max-w-6xl mx-auto px-5 py-16 grid md:grid-cols-3 gap-10">
+    <div>
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/goshin_logo_without_text.jpg" alt="Goshin" class="h-10 w-10 object-contain bg-paper p-1 rounded-md shadow-inner" />
+        <span class="font-display font-black text-xl">Judoclub Goshin</span>
+      </a>
+      <p class="mt-4 text-sm text-paper/70">VZW sinds 1965. Recreatief en competitief judo voor iedereen tussen 5 en 99 jaar.</p>
+      <p class="mt-2 text-xs text-paper/50">Ondernemingsnummer 0879.456.042</p>
+    </div>
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-tatami">Contact</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="mailto:info@goshin.be" class="hover:text-white">info@goshin.be</a></li>
+        <li><a href="tel:+32498162713" class="hover:text-white">0498 16 27 13</a></li>
+        <li><a href="https://www.facebook.com/judoclubgoshin" target="_blank" rel="noopener" class="hover:text-white">Facebook</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-tatami">Snelkoppelingen</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="nieuw-lid.html" class="hover:text-white">Info nieuw lid</a></li>
+        <li><a href="reglement.html" class="hover:text-white">Intern reglement</a></li>
+        <li><a href="club.html" class="hover:text-white">Over de club</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-5 py-5 text-xs text-paper/60 flex flex-wrap items-center justify-between gap-2">
+      <p>© <span id="year"></span> Judoclub Goshin VZW — Sint-Amandsberg, Gent</p>
+      <p>Lid van Judo Vlaanderen, Belgische Judobond &amp; IJF</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
