@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Club — Judoclub Goshin Sint-Amandsberg</title>
+<meta name="description" content="Trainers, bestuur en geschiedenis van Judoclub Goshin VZW. Een Gentse judoclub sinds 1965." />
+<link rel="icon" type="image/jpeg" href="assets/goshin_logo_without_text.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: { DEFAULT: '#b91c1c', dark: '#7f1d1d', light: '#fee2e2' },
+          ink:   { DEFAULT: '#0a0a0a', soft: '#262626' },
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  .font-display { font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif; letter-spacing: -0.02em; }
+</style>
+</head>
+<body class="bg-white text-ink antialiased">
+
+<header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-neutral-200">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5">
+      <img src="assets/goshin_logo_without_text.jpg" alt="Goshin logo" class="h-10 w-10 object-contain" />
+      <span class="font-display font-extrabold text-lg">Judoclub Goshin</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-700">
+      <a href="index.html#trainingen" class="hover:text-brand">Trainingen</a>
+      <a href="nieuw-lid.html" class="hover:text-brand">Nieuw lid</a>
+      <a href="club.html" class="text-brand">Club</a>
+      <a href="index.html#contact" class="hover:text-brand">Contact</a>
+      <a href="index.html#proefles" class="inline-flex items-center gap-1.5 rounded-full bg-ink text-white px-4 py-2 hover:bg-brand transition">4 gratis lessen</a>
+    </nav>
+    <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-neutral-300" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-200 bg-white">
+    <nav class="px-5 py-3 flex flex-col gap-3 text-neutral-800 font-medium">
+      <a href="index.html#trainingen">Trainingen</a>
+      <a href="nieuw-lid.html">Nieuw lid</a>
+      <a href="club.html">Club</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="border-b border-neutral-200 bg-neutral-50">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+    <p class="text-sm font-semibold uppercase tracking-wider text-brand">De club</p>
+    <h1 class="mt-2 font-display text-4xl md:text-6xl font-extrabold leading-[1.05]">Een Gentse judotraditie sinds 1965.</h1>
+    <p class="mt-5 max-w-2xl text-lg text-neutral-700">Judoclub Goshin VZW is een familiale club met een sterke pedagogische én competitieve traditie. We trainen op een eigen tatami van 191 m² in Sint-Amandsberg.</p>
+    <dl class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+      <div class="rounded-xl bg-white border border-neutral-200 p-4">
+        <dt class="text-xs uppercase tracking-wider text-neutral-500 font-semibold">Stichtingsjaar</dt>
+        <dd class="mt-1 font-display font-extrabold text-2xl">1965</dd>
+      </div>
+      <div class="rounded-xl bg-white border border-neutral-200 p-4">
+        <dt class="text-xs uppercase tracking-wider text-neutral-500 font-semibold">Tatami</dt>
+        <dd class="mt-1 font-display font-extrabold text-2xl">191 m²</dd>
+      </div>
+      <div class="rounded-xl bg-white border border-neutral-200 p-4">
+        <dt class="text-xs uppercase tracking-wider text-neutral-500 font-semibold">Hoofdtrainer</dt>
+        <dd class="mt-1 font-display font-extrabold text-2xl">7<sup>e</sup> Dan</dd>
+      </div>
+      <div class="rounded-xl bg-white border border-neutral-200 p-4">
+        <dt class="text-xs uppercase tracking-wider text-neutral-500 font-semibold">Trainingen</dt>
+        <dd class="mt-1 font-display font-extrabold text-2xl">2 / week</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- Trainers -->
+<section class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+  <div class="max-w-3xl">
+    <p class="text-sm font-semibold uppercase tracking-wider text-brand">Trainers</p>
+    <h2 class="mt-2 font-display text-3xl md:text-4xl font-extrabold">Een team met tientallen jaren ervaring.</h2>
+  </div>
+  <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <article class="rounded-2xl border border-neutral-200 p-6">
+      <div class="flex items-center gap-4">
+        <img src="assets/people/rita.jpg" alt="Rita Vercauteren" class="h-16 w-16 rounded-full object-cover" />
+        <div>
+          <p class="font-display font-bold text-lg leading-tight">Rita Vercauteren</p>
+          <p class="text-sm text-brand font-semibold">7<sup>e</sup> Dan • Hoofdtrainer</p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-neutral-600">Trainer A (BLOSO). Voormalig lid Belgische Nationale Judo Ploeg. 13 keer kampioen van België tussen 1970 en 1985.</p>
+    </article>
+    <article class="rounded-2xl border border-neutral-200 p-6">
+      <div class="flex items-center gap-4">
+        <img src="assets/people/franklin.jpg" alt="Franklin Pereira Reyes" class="h-16 w-16 rounded-full object-cover" />
+        <div>
+          <p class="font-display font-bold text-lg leading-tight">Franklin Pereira Reyes</p>
+          <p class="text-sm text-brand font-semibold">6<sup>e</sup> Dan • Trainer A (BLOSO)</p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-neutral-600">Licentiaat Lichamelijke Opvoeding. Trainer Topsportschool Antwerpen. Voormalig lid Cubaanse nationale ploeg, 8× kampioen van Cuba, winnaar A-Tornooi Roma 1996.</p>
+    </article>
+    <article class="rounded-2xl border border-neutral-200 p-6">
+      <div class="flex items-center gap-4">
+        <img src="assets/people/jean.jpg" alt="Jean Mercier" class="h-16 w-16 rounded-full object-cover" />
+        <div>
+          <p class="font-display font-bold text-lg leading-tight">Jean Mercier</p>
+          <p class="text-sm text-brand font-semibold">2<sup>e</sup> Dan • Jeugdsportbegeleider</p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-neutral-600">Belgisch kampioen Masters 2013 &amp; 2015 (-73 kg). Provinciaal en internationaal succes als junior.</p>
+    </article>
+    <article class="rounded-2xl border border-neutral-200 p-6">
+      <div class="flex items-center gap-4">
+        <img src="assets/people/gabriel.jpg" alt="Gabriël Spataru" class="h-16 w-16 rounded-full object-cover" />
+        <div>
+          <p class="font-display font-bold text-lg leading-tight">Gabriël Spataru</p>
+          <p class="text-sm text-brand font-semibold">1<sup>e</sup> Dan • Jeugdsportbegeleider</p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-neutral-600">Belgisch kampioen Masters 2015 (-81 kg). 10 shiai-punten als 1<sup>e</sup> Kyu.</p>
+    </article>
+    <article class="rounded-2xl border border-neutral-200 p-6">
+      <div class="flex items-center gap-4">
+        <img src="assets/people/maarten.jpg" alt="Maarten Floré" class="h-16 w-16 rounded-full object-cover" />
+        <div>
+          <p class="font-display font-bold text-lg leading-tight">Maarten Floré</p>
+          <p class="text-sm text-brand font-semibold">1<sup>e</sup> Dan • Voorzitter</p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-neutral-600">Licentiaat orthopedagogiek. Kampioen van Vlaanderen Juniors 1994 en meerdere ereplaatsen op nationale en internationale tornooien.</p>
+    </article>
+    <article class="rounded-2xl border border-neutral-200 p-6">
+      <div class="flex items-center gap-4">
+        <img src="assets/people/emmanuel.jpg" alt="Emmanuel Tandoh" class="h-16 w-16 rounded-full object-cover" />
+        <div>
+          <p class="font-display font-bold text-lg leading-tight">Emmanuel Tandoh</p>
+          <p class="text-sm text-brand font-semibold">1<sup>e</sup> Dan • Aspirant initiator</p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-neutral-600">Aspirant initiator (Judo Vlaanderen). Begeleidt jeugdgroepen en initiatielessen.</p>
+    </article>
+  </div>
+</section>
+
+<!-- Bestuur -->
+<section class="bg-neutral-50 border-y border-neutral-200">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-brand">Bestuur</p>
+      <h2 class="mt-2 font-display text-3xl md:text-4xl font-extrabold">Wie de club draaiende houdt.</h2>
+    </div>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="rounded-2xl bg-white border border-neutral-200 p-5 flex items-center gap-4">
+        <img src="assets/people/maarten.jpg" alt="Maarten Floré" class="h-14 w-14 rounded-full object-cover shrink-0" />
+        <div><p class="font-display font-bold leading-tight">Maarten Floré</p><p class="text-sm text-neutral-600">Voorzitter</p></div>
+      </div>
+      <div class="rounded-2xl bg-white border border-neutral-200 p-5 flex items-center gap-4">
+        <img src="assets/people/bart.jpg" alt="Bart Schelfhout" class="h-14 w-14 rounded-full object-cover shrink-0" />
+        <div><p class="font-display font-bold leading-tight">Bart Schelfhout</p><p class="text-sm text-neutral-600">Secretaris &amp; ledenadministratie</p></div>
+      </div>
+      <div class="rounded-2xl bg-white border border-neutral-200 p-5 flex items-center gap-4">
+        <img src="assets/people/rita.jpg" alt="Rita Vercauteren" class="h-14 w-14 rounded-full object-cover shrink-0" />
+        <div><p class="font-display font-bold leading-tight">Rita Vercauteren</p><p class="text-sm text-neutral-600">Penningmeester</p></div>
+      </div>
+      <div class="rounded-2xl bg-white border border-neutral-200 p-5 flex items-center gap-4">
+        <img src="assets/people/gabriel.jpg" alt="Gabriël Spataru" class="h-14 w-14 rounded-full object-cover shrink-0" />
+        <div><p class="font-display font-bold leading-tight">Gabriël Spataru</p><p class="text-sm text-neutral-600">Jeugdtrainer</p></div>
+      </div>
+      <div class="rounded-2xl bg-white border border-neutral-200 p-5 flex items-center gap-4">
+        <img src="assets/people/david.jpg" alt="David Verween" class="h-14 w-14 rounded-full object-cover shrink-0" />
+        <div><p class="font-display font-bold leading-tight">David Verween</p><p class="text-sm text-neutral-600">Begeleider competities</p></div>
+      </div>
+      <div class="rounded-2xl bg-white border border-neutral-200 p-5 flex items-center gap-4">
+        <img src="assets/people/franklin.jpg" alt="Franklin Pereira Reyes" class="h-14 w-14 rounded-full object-cover shrink-0" />
+        <div><p class="font-display font-bold leading-tight">Franklin Pereira Reyes</p><p class="text-sm text-neutral-600">Trainer</p></div>
+      </div>
+      <div class="rounded-2xl bg-white border border-neutral-200 p-5 flex items-center gap-4">
+        <img src="assets/people/laurence.jpg" alt="Laurence Declunder" class="h-14 w-14 rounded-full object-cover shrink-0" />
+        <div><p class="font-display font-bold leading-tight">Laurence Declunder</p><p class="text-sm text-neutral-600">Ledenadministratie</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filosofie -->
+<section class="max-w-6xl mx-auto px-5 py-16 md:py-20">
+  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wider text-brand">Filosofie</p>
+      <h2 class="mt-2 font-display text-3xl md:text-4xl font-extrabold">De zachte weg, sinds Jigoro Kano.</h2>
+      <p class="mt-5 text-neutral-700 leading-relaxed">Judo is een Japanse vechtsport, geïntroduceerd door meester Jigoro Kano in 1882. De naam betekent letterlijk <em>de zachte weg</em>: techniek primeert op kracht, en samenwerken op overheersen.</p>
+      <p class="mt-3 text-neutral-700 leading-relaxed">Twee spreuken vatten de geest van judo samen — en vormen ook bij Goshin de leidraad op de tatami:</p>
+    </div>
+    <div class="space-y-4">
+      <blockquote class="rounded-2xl border-l-4 border-brand bg-neutral-50 p-6">
+        <p class="font-display font-bold text-lg">Seiryoku-zen'yō</p>
+        <p class="text-neutral-700 mt-1">Maximale effectiviteit met minimale inzet — gebruik de kracht van de tegenstander om hem ten val te brengen.</p>
+      </blockquote>
+      <blockquote class="rounded-2xl border-l-4 border-brand bg-neutral-50 p-6">
+        <p class="font-display font-bold text-lg">Jita Kyōei</p>
+        <p class="text-neutral-700 mt-1">Wederzijds profijt en welbevinden — leer samenwerken om sterker te worden, samen.</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- Federaties -->
+<section class="bg-neutral-50 border-t border-neutral-200">
+  <div class="max-w-6xl mx-auto px-5 py-12">
+    <p class="text-center text-sm font-semibold uppercase tracking-wider text-neutral-500">Erkende judoclub — lid van</p>
+    <div class="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 font-display font-bold text-lg text-neutral-700">
+      <span>Judo Vlaanderen</span>
+      <span class="text-neutral-300">•</span>
+      <span>Belgische Judobond</span>
+      <span class="text-neutral-300">•</span>
+      <span>International Judo Federation</span>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-neutral-300">
+  <div class="max-w-6xl mx-auto px-5 py-12 flex flex-wrap items-center justify-between gap-4 text-sm">
+    <div class="flex items-center gap-2.5">
+      <img src="assets/goshin_logo_without_text.jpg" alt="Goshin logo" class="h-9 w-9 object-contain bg-white" />
+      <span class="font-display font-extrabold text-white">Judoclub Goshin</span>
+    </div>
+    <p class="text-neutral-400">© <span id="year"></span> Judoclub Goshin VZW — Ondernemingsnummer 0879.456.042</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
